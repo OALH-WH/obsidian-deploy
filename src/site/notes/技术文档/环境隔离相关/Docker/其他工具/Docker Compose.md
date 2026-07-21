@@ -34,6 +34,7 @@ services:
 		
 		tty: # 是否分配伪终端, true or false
 		command: <COMMAND> # 容器启动的主命令
+		working_dir: # 工作目录
 ```
 ### 常见问题
 

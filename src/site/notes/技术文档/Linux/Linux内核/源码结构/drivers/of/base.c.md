@@ -2,6 +2,31 @@
 {"dg-publish":true,"permalink":"/技术文档/Linux/Linux内核/源码结构/drivers/of/base.c/","dg-note-properties":{}}
 ---
 
+# of_alias_get_id()
+获取设备节点别名`id`
+
+**参数**
+- `np`: 设备树节点指针
+- `stem`: 别名的前缀字符串
+
+**返回值**
+- 成功: 返回解析出的整数`ID`
+- 失败: 返回负数错误码, 比如`-ENODEV`
+
+**实例**
+```c
+// i2c 适配器获取别名id
+id = of_alias_get_id(dev->of_node, "i2c");
+
+        if (id >= 0) {
+
+            adapter->nr = id;
+
+            return __i2c_add_numbered_adapter(adapter);
+
+        }
+```
+
 # of_match_node()
 在设备匹配兼容表里查找指定设备节点
 

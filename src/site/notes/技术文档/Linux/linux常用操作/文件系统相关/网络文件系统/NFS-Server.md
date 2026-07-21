@@ -30,8 +30,8 @@
 		- `sync`
 		- `no_subtree_check`: **不检查**父目录权限，可提升性能
 		- `subtree_check`
-		- `no_all_squash`: 不转变客户端用户(针对`root`用户)为匿名用户
-		- `no_root_squash`: 不转变客户端用户(针对所有用户)为匿名用户
+		- `no_root_squash`: 不转变客户端用户(针对`root`用户)为匿名用户
+		- `no_all_squash`: 不转变客户端用户(针对所有用户)为匿名用户
 		- `anonuid=<UID>`: 设置匿名用户的`uid`
 		- `anongid=<GID>`: 设置匿名用户的`gid`
 # 实例

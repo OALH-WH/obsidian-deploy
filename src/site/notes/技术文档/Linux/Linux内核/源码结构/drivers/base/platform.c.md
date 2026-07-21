@@ -17,7 +17,7 @@
 
 包括下述工作:
 1. `match`函数指针指向[[技术文档/Linux/Linux内核/源码结构/drivers/base/platform.c#platform_match\|#platform_match]]函数
-	- `match`调用的地方在[[技术文档/Linux/Linux内核/源码结构/drivers/base/base.h#driver_match_device()\|base.h#driver_match_device()]]
+	- `match`被回调的地方在[[技术文档/Linux/Linux内核/源码结构/drivers/base/base.h#driver_match_device()\|base.h#driver_match_device()]]
 
 # __platform_driver_register()
 

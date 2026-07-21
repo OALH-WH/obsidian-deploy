@@ -24,7 +24,7 @@
 
 包括下述工作:
 1. 遍历[[技术文档/Linux/Linux内核/源码结构/drivers/pinctrl/core.c#pinctrl_list变量\|#pinctrl_list变量]], 如果`dev`存在和`pinctrl_list`中保存的`pinctrl->dev`相同的, 则表示找到了, 返回这个`pinctrl`
-	- 返回的类型参考[[技术文档/Linux/Linux内核/源码结构/include/linux/pinctrl/core.h#struct pinctrl\|core.h#struct pinctrl]]
+	- 返回的类型参考[[技术文档/Linux/Linux内核/源码结构/include/linux/pinctrl/core.h#struct pinctrl\|技术文档/Linux/Linux内核/源码结构/include/linux/pinctrl/core.h#struct pinctrl]]
 
 # create_pinctrl()
 

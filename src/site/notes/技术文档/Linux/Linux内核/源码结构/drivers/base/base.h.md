@@ -7,3 +7,4 @@
 包括下述工作:
 1. 调用`drv->bus->match`回调函数去匹配
 	- 比如平台总线匹配参考[[技术文档/Linux/Linux内核/源码结构/drivers/base/platform.c#platform_bus_type变量\|platform.c#platform_bus_type变量]]
+	- 比如`i2c`总线匹配参考[[技术文档/Linux/Linux内核/源码结构/drivers/i2c/i2c-core-base.c#i2c_bus_type变量\|i2c-core-base.c#i2c_bus_type变量]]

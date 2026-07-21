@@ -2,9 +2,8 @@
 {"dg-publish":true,"permalink":"/技术文档/Linux/Linux内核/源码结构/include/linux/cdev.h/","dg-note-properties":{}}
 ---
 
-# 宏/类型定义
-## 字符设备类型
-### struct cdev
+
+# struct cdev
 ```cpp
 struct cdev {
 
@@ -22,4 +21,3 @@ struct cdev {
 
 } __randomize_layout;
 ```
-# 函数
