@@ -20,6 +20,15 @@
 	- `to <PREFIX>`: 可精确匹配`ip addr`删除
 
 ### 字段解析
+`eg. 192.168.0.59 dev eth2 lladdr c8:58:b3:79:e4:0b REACHABLE`
+- `field 1`: `ip`地址
+- `field 2`
+- `...`
+- `field 5`: 物理地址, 参考[[技术文档/计算机网络相关/OSI七层模型/链路层/协议/ARP协议#MAC地址\|ARP协议#MAC地址]]
+- `field 6`: 当前条目的状态
+	- `REACHABLE`: 最近确认
+	- `STALE`: 之前可达, 直至目前网络通信处于空闲状态
+	- `FAILED`: 
 
 ### 实例
 ```shell

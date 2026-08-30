@@ -14,6 +14,7 @@
 - `-G`: 指定附加组列表
 
 # 实例
+**把kali用户添加到sudo组**
 ```shell
 usermod -aG sudo kali
 ```

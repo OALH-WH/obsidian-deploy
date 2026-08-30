@@ -4,6 +4,14 @@
 
 # 背景
 - 控制`systemd`管理的服务
+# 运行目标
+## 参数
+- `get-default`: 获取默认的运行目标
+- `set-default <TARGET>`: 设置系统启动时默认的运行目标
+	- `eg. graphical.target`
+	- 参考[[技术文档/Linux/linux常用操作/系统相关/自启进程/systemd管理#target\|systemd管理#target]]
+- `isolate <TARGET>`: 立即切当前运行目标
+- `cat <TARGET>`: 查看真正生效的`target`配置
 # 电源管理
 ## 参数
 - `poweroff`: 关机并切断电源

@@ -12,7 +12,7 @@
 
 **options**
 - `--bind`
-- `-t, --types <list>`: 指定处理的文件系统, 获取支持挂载的文件系统参考[[技术文档/Linux/常见目录和文件作用#filesystems：显示内核支持的文件系统模块\|常见目录和文件作用#filesystems：显示内核支持的文件系统模块]]
+- `-t, --types <list>`: 指定处理的文件系统, 获取支持挂载的文件系统参考[[技术文档/Linux/常见目录和文件作用#filesystems\|常见目录和文件作用#filesystems]]
 - `[--source] <src>`: 指定挂载源(path, label, uuid, 其中path是随机的, 当增加或者移除一块硬盘, 之前的path可能不存在, 因此label和uuid可能更加可靠 )
 - `[--target] <target>`: 指定挂载点, 即挂载的位置
 - `-a, --all`: 挂载所有在`fstab`中定义好的文件系统(会读取配置文件`/etc/fstab`)

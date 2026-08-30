@@ -12,8 +12,24 @@
 
 # struct device
 设备类, 包括下述成员:
+- `parent`: 表示父设备
 - `driver`: 分配给这个设备的驱动, 类型为[[技术文档/Linux/Linux内核/源码结构/include/linux/device.h#struct device_driver\|#struct device_driver]]
 - `of_node`:  设备树节点指针
+- `platform_data`: `void *`类型的指针变量, 设备树普及之前, 老版内核用于传递设备相关硬件参数到驱动的成员
+{ #f95f04}
+
+	- 一般在定义设备结构体变量时赋值, 比如
+```c
+/* 注册 platform_device 时挂上去 */
+static struct platform_device my_key_device = {
+    .name = "gpio-keys",
+    .id   = -1,
+    .dev  = {
+        .platform_data = &my_key_pdata,  /* ← 在这里赋值 */
+    },
+};
+```
+- 
 
 # devm_kzalloc()
 作用同`kzalloc`一致, 清零初始化, 分配堆空间, 但这块内存和设备实例绑定, 不用手动释放
@@ -47,3 +63,21 @@
 
 
 # device_create()
+
+
+# dev_get_platdata()
+用于获取[[技术文档/Linux/Linux内核/源码结构/include/linux/device.h#^f95f04\|#^f95f04]]成员变量
+
+包括下述工作:
+
+
+# dev_name()
+获取设备名称
+
+**来源**
+- **驱动代码显式设置**：在注册设备前，通过 `dev_set_name(&pdev->dev, "my_uart")` 手动赋名。
+- **设备树（DTS）的映射**：对于平台设备（Platform Device），内核在解析设备树时，会默认将 `dts` 节点名（或节点名@地址）作为设备名。例如，如果你的 DTS 节点是 `uart@4000d000`，`dev_name()` 通常返回 `"uart"` 或 `"4000d000.uart"`（取决于总线匹配）。
+- **传统板级代码**：在旧式非设备树启动中，是注册 `platform_device` 时传入的 `.name` 字段。
+
+# dev_set_name()
+显式设置设备名称

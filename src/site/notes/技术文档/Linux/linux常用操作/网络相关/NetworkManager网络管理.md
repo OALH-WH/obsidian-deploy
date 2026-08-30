@@ -5,6 +5,24 @@
 # 下载安装
 # 配置
 不推荐直接修改配置, 请用`nmcli`命令
+## 网络信息
+**示例**
+```shell
+
+# 查询当前所有的已知连接
+nmcli connection show
+
+# 若没有, 则创建一个
+sudo nmcli connection add type ethernet con-name "my-dhcp-enp0s3" ifname enp0s3 ipv4.method auto
+
+# 若有, 则修改它的信息
+sudo nmcli connection modify "<连接名>" \
+    ipv4.method manual \
+    ipv4.addresses <IP地址>/<子网掩码前缀> \ # eg. 192.168.5.200/24
+    ipv4.gateway <网关地址> \
+    ipv4.dns <DNS服务器地址> \
+    connection.interface-name <目标网卡名>
+```
 # 服务程序
 
 # 客户端程序
@@ -23,6 +41,14 @@
 使配置生效
 ##### show
  列出内存和磁盘中存储的关于网络连接的配置信息
+
+**字段解析**
+```shell
+NAME             UUID                                  TYPE     DEVICE 
+有线连接 1       ebe2afbe-56a7-377f-bd5b-6d8443772869  ethernet  -- 
+```
+- `DEVICE`: 网络的网卡接口
+	- `--`: 表示未激活/未指定
 ##### modify
  重新配置一个网络连接的配置, 并持久化存储
 - **基本格式**

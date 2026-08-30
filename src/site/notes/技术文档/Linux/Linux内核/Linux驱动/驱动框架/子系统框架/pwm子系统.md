@@ -2,6 +2,8 @@
 {"dg-publish":true,"permalink":"/技术文档/Linux/Linux内核/Linux驱动/驱动框架/子系统框架/pwm子系统/","dg-note-properties":{}}
 ---
 
+# 背景
+- `pwm`: `Pulse Width Modulation`, 脉宽调制
 # 驱动
 一般由芯片厂商实现
 

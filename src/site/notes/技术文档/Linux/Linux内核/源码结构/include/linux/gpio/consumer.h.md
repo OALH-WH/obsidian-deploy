@@ -26,6 +26,8 @@
 # devm_fwnode_get_index_gpiod_from_child()
 定义在[[技术文档/Linux/Linux内核/源码结构/drivers/gpio/gpiolib-devres.c#devm_fwnode_get_index_gpiod_from_child\|gpiolib-devres.c#devm_fwnode_get_index_gpiod_from_child]]
 
+根据在设备树属性`gpios`定义的`gpio`的索引获取`gpio`描述符
+
 **参数**
 - `dev`: `GPIO`子系统的消费者
 	- 一般为`GPIO`设备驱动

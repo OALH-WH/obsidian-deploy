@@ -3,6 +3,9 @@
 ---
 
 # 其他
+## diskusage
+查看磁盘占用
+`eg. diskusage /h /d:1 <DIR>`
 ## net
 - 管理网络环境、用户账户、服务、共享资源
 ### user

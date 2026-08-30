@@ -7,7 +7,18 @@
 标签
 - 相当于代码仓库的快照, 只读, 无法在其上进行修改
 - 切换到tag (这会使你处于“detached HEAD”状态，即不在任何分支上)
+
+## 浅仓库
+只有最近部分提交, 没有完整全部历史
 # 常用命令
+---
+## rev-parse
+### 基本格式
+
+**可选参数**
+- `--is-shallow-repository`: 查看当前是否为浅仓库, 可通过`git fetch --unshallow origin`拉取仓库完整历史
+	- `true`: 为浅仓库
+
 ---
 ## cherry-pick
 - 把指定提交合并到当前分支
@@ -80,7 +91,21 @@
 |`onto`|rebase 的新基线（不是命令，是 label）|
 
 ---
-## diff: 查看版本内容差异
+## format-patch
+根据`commited`历史, 生成独立的`patch`文件集合
+
+---
+## diff
+1. `git diff`：工作区 ↔ 暂存区；看不到已 add 的变更，看不到全新 untracked 文件。
+2. `git diff --cached`：暂存区 ↔ HEAD 仓库。
+3. `git diff HEAD -- filename`：磁盘文件直接对比仓库内最新版本，最稳妥
+### 基本格式
+`git diff [HEAD[^...] --] [options] [file path]`
+
+**可选参数**
+- `-cached`: 显示暂存区和某次提交之间的差异
+
+**实例**
 - 情况1：都已经提交，工作区没有改动
 	- 查看最近两个提交之间的差异
 		- `git diff HEAD^ -- <filename>`
@@ -96,6 +121,26 @@
 		- `git diff HEAD -- <filename>`
 - 情况4：生成patch文件
 	- `git diff <file> > <patch file>.patch`
+---
+## apply
+应用补丁
+在**目标 git 仓库根目录**执行（和生成 patch 时的目录层级保持一致）
+
+### 基本格式
+````
+git apply modify.patch
+````
+
+**常见排错参数**
+```shell
+#先检查能不能打，不实际修改文件
+git apply --check modify.patch
+
+#忽略空格、换行差异，解决换行符导致打补丁失败
+git apply --ignore-whitespace modify.patch
+
+```
+
 ---
 ## config
 ### 配置级别
@@ -214,6 +259,10 @@
 - `git add` .:标记冲突已解决
 ---
 ## checkout
+分支相关操作
+
+### 基本格式
+- `git checkout --orphan <branch_name>`: 基于当前HEAD创建无父提交的孤儿分支
 - `git checkout <commit_id>`: 使用指定分支提交的代码
 - `git checkout -b <branch_name> [<[origin/]base_branch> | <tag_name>]`: 创建新分支并切换到新分支
 	- `<tag_name>`: 基于`tag_name`创建本地下游分支

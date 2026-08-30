@@ -23,6 +23,16 @@
 - C
 # 或者
 [A, B, C]
+
+# 多行元素
+# 保留换行符, abc\ndef
+- |
+  abc
+  def
+# 合并为一行, abc def
+- >
+  abc
+  def
 ```
 
 ## YAML纯量

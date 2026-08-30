@@ -30,7 +30,7 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 1234 mysql     20   0 2.0g   800m   45m S  15.0  5.2   120:30.45 mysqld
 ```
 - `VIRT=2.0g` 虚存很高，但 `RES=800m` 表示实际占用 800MB 物理内存
-- `RES=800m`
+- `RES=800m` 表示物理内存
 - `%CPU=15.0` 表示 mysqld 占用了一个 CPU 核心 15% 的时间
 - `TIME+` 较大，说明它是一个长期运行且密集计算的服务
 - 状态 `S`（睡眠）表示此刻等待事件，但累计 CPU 时间多，说明它间歇忙碌

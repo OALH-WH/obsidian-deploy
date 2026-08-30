@@ -10,8 +10,9 @@
 # 实例
 ```shell
 
-# 修改密码
-chpasswd root:newpassword
+#方式1：管道输入（推荐）
+echo "root:2267" | sudo chpasswd
+
 
 
 ```
